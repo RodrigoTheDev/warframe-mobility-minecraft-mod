@@ -3,7 +3,7 @@
 	"package": "com.rodrigodev.warframemobility.client.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"ExampleClientMixin"
+		"LocalPlayerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
