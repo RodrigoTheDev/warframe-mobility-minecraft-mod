@@ -22,6 +22,8 @@ public class WarframeMobilityConfig {
 
     public double runSpeedMultiplier = 1.5;
 
+    public double wfModeJumpForce = 0.7;
+
     public double doubleJumpForce = 0.8;
 
     public double wallJumpForce = 0.8;
@@ -29,6 +31,8 @@ public class WarframeMobilityConfig {
     public double bulletJumpHorizontalForce = 2.5;
 
     public double bulletJumpVerticalForce = 1.2;
+
+    public int doubleJumpDelayTicks = 3;
 
 
     public static WarframeMobilityConfig load() {
