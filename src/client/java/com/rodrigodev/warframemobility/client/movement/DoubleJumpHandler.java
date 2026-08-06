@@ -45,10 +45,6 @@ public class DoubleJumpHandler {
             }
         }
 
-        if (justPressed) {
-            System.out.println("Pressed!");
-        }
-
         if (!WarframeMobilityState.isEnabled()) {
             return;
         }
@@ -89,8 +85,6 @@ public class DoubleJumpHandler {
         );
 
         player.hasImpulse = true;
-
-        System.out.println("Double Jump!");
     }
 
     private static void applyWarframeJumpForce(LocalPlayer player) {

@@ -34,6 +34,10 @@ public class WarframeMobilityConfig {
 
     public int doubleJumpDelayTicks = 3;
 
+    public double slideDeceleration = 0.95;
+    
+    public double slideMinSpeed = 0.05;
+
 
     public static WarframeMobilityConfig load() {
 
