@@ -137,4 +137,7 @@ public class SlideHandler {
         return sliding;
     }
 
+    public static void forceStop(LocalPlayer player) {
+        stopSlide(player);
+    }
 }

@@ -5,7 +5,8 @@
 	"client": [
 		"LocalPlayerMixin",
 		"LivingEntityMixin",
-		"GameRendererMixin"
+		"GameRendererMixin",
+		"LivingEntityAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -97,4 +97,16 @@ public class DoubleJumpHandler {
 
         player.hasImpulse = true;
     }
+
+    public static boolean canDoubleJump() {
+        return !doubleJumpUsed;
+    }
+
+    public static boolean hasJumpStarted() {
+        return !wasOnGround;
+    }
+
+    public static void consumeDoubleJump() {
+        doubleJumpUsed = true;
+    }
 }
