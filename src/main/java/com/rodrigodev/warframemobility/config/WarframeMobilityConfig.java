@@ -30,7 +30,7 @@ public class WarframeMobilityConfig {
 
     public double bulletJumpHorizontalForce = 1.5;
 
-    public double bulletJumpVerticalForce = 0.8;
+    public double bulletJumpVerticalForce = 0.2;
 
     public int doubleJumpDelayTicks = 3;
 
