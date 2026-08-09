@@ -6,7 +6,6 @@ import com.rodrigodev.warframemobility.client.mixin.LivingEntityAccessor;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 
 public class BulletJumpHandler {
@@ -27,13 +26,13 @@ public class BulletJumpHandler {
         Minecraft minecraft = Minecraft.getInstance();
 
         boolean jumpPressed =
-                minecraft.options.keyJump.isDown();
+            minecraft.options.keyJump.isDown();
 
         boolean crouching =
-                minecraft.options.keyShift.isDown();
+            minecraft.options.keyShift.isDown();
 
         boolean justPressed =
-                jumpPressed && !jumpWasPressedLastTick;
+            jumpPressed && !jumpWasPressedLastTick;
 
         jumpWasPressedLastTick = jumpPressed;
 
@@ -41,16 +40,10 @@ public class BulletJumpHandler {
             return;
         }
 
-        /*
-         * Bullet Jump precisa de agachar.
-         */
         if (!crouching) {
             return;
         }
 
-        /*
-         * Usa o mesmo recurso do Double Jump.
-         */
         if (!DoubleJumpHandler.canDoubleJump()) {
             return;
         }
@@ -61,48 +54,36 @@ public class BulletJumpHandler {
     private static void performBulletJump(LocalPlayer player) {
 
         Vec3 look =
-                player.getLookAngle().normalize();
+            player.getLookAngle().normalize();
 
         double horizontalForce =
-                Warframemobility.CONFIG.bulletJumpHorizontalForce;
+            Warframemobility.CONFIG.bulletJumpHorizontalForce;
 
         double verticalForce =
                 Warframemobility.CONFIG.bulletJumpVerticalForce;
 
         Vec3 velocity = new Vec3(
-                look.x * horizontalForce,
-                look.y * horizontalForce + verticalForce,
-                look.z * horizontalForce
+            look.x * horizontalForce,
+            look.y * horizontalForce + verticalForce,
+            look.z * horizontalForce
         );
 
         player.setDeltaMovement(velocity);
 
         player.hasImpulse = true;
 
-        /*
-         * Consome o salto aéreo.
-         */
         DoubleJumpHandler.consumeDoubleJump();
 
-        /*
-         * Inicia animação vanilla do Riptide.
-         */
         startBulletJumpAnimation(player);
 
-        /*
-         * Se estava deslizando, encerra.
-         */
         if (SlideHandler.isSliding()) {
             SlideHandler.forceStop(player);
         }
-
-        System.out.println("Bullet Jump!");
     }
 
     private static void startBulletJumpAnimation(LocalPlayer player) {
 
-        ((LivingEntityAccessor) player)
-                .warframeMobility$setLivingEntityFlag(4, true);
+        ((LivingEntityAccessor) player).warframeMobility$setLivingEntityFlag(4, true);
 
         bulletJumpAnimationTicks = 10;
     }
@@ -116,10 +97,7 @@ public class BulletJumpHandler {
         bulletJumpAnimationTicks--;
 
         if (bulletJumpAnimationTicks == 0) {
-
-            ((LivingEntityAccessor) player)
-                    .warframeMobility$setLivingEntityFlag(4, false);
-
+            ((LivingEntityAccessor) player).warframeMobility$setLivingEntityFlag(4, false);
         }
     }
 
