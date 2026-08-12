@@ -2,10 +2,13 @@ package com.rodrigodev.warframemobility.client.movement;
 
 import com.rodrigodev.warframemobility.Warframemobility;
 import com.rodrigodev.warframemobility.client.WarframeMobilityState;
+import com.rodrigodev.warframemobility.movement.ability.SlideAbility;
+import com.rodrigodev.warframemobility.network.SlideStatePayload;
+
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.world.entity.Pose;
 import net.minecraft.world.phys.Vec3;
 
 public class SlideHandler {
@@ -36,9 +39,6 @@ public class SlideHandler {
             return;
 
         }
-
-        // Mantém a pose durante todo o slide
-        player.setPose(Pose.SWIMMING);
 
         applySlideMovement(player);
 
@@ -71,6 +71,9 @@ public class SlideHandler {
     private static void startSlide(LocalPlayer player) {
 
         sliding = true;
+
+        SlideAbility.setSliding(player.getUUID(), true);
+        ClientPlayNetworking.send(new SlideStatePayload(true));
 
 
         Vec3 direction =
@@ -129,6 +132,9 @@ public class SlideHandler {
         sliding = false;
 
         slideVelocity = Vec3.ZERO;
+
+        SlideAbility.setSliding(player.getUUID(), false);
+        ClientPlayNetworking.send(new SlideStatePayload(false));
 
     }
 
