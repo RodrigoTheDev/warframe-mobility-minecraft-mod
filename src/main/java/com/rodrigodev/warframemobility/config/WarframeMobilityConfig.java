@@ -26,7 +26,7 @@ public class WarframeMobilityConfig {
 
     public double doubleJumpForce = 0.8;
 
-    public double wallJumpForce = 0.8;
+    public double wallJumpForce = 0.7;
 
     public double bulletJumpHorizontalForce = 1.5;
 
