@@ -20,9 +20,9 @@ public abstract class LocalPlayerMixin {
 
         LocalPlayer player = (LocalPlayer) (Object) this;
 
+        BulletJumpHandler.tick(player);
         DoubleJumpHandler.tick(player);
         SlideHandler.tick(player);
-        BulletJumpHandler.tick(player);
         WallJumpHandler.tick(player);
         StepHeightHandler.tick(player);
 
