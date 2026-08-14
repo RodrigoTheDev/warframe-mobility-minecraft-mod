@@ -3,6 +3,7 @@ package com.rodrigodev.warframemobility.client.mixin;
 import com.rodrigodev.warframemobility.client.movement.BulletJumpHandler;
 import com.rodrigodev.warframemobility.client.movement.DoubleJumpHandler;
 import com.rodrigodev.warframemobility.client.movement.SlideHandler;
+import com.rodrigodev.warframemobility.client.movement.StepHeightHandler;
 import com.rodrigodev.warframemobility.client.movement.WallJumpHandler;
 
 import net.minecraft.client.player.LocalPlayer;
@@ -23,6 +24,7 @@ public abstract class LocalPlayerMixin {
         SlideHandler.tick(player);
         BulletJumpHandler.tick(player);
         WallJumpHandler.tick(player);
+        StepHeightHandler.tick(player);
 
     }
 
