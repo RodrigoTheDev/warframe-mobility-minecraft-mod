@@ -6,7 +6,8 @@
 		"LocalPlayerMixin",
 		"LivingEntityMixin",
 		"GameRendererMixin",
-		"LivingEntityAccessor"
+		"LivingEntityAccessor",
+		"PlayerSneakingMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
